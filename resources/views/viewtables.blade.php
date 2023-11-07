@@ -46,4 +46,18 @@
     @else
         <p>Nenhum dado disponível na Tabela 1.</p>
     @endif
+
+    <h2>Colunas que não existem em Tabela 1:</h2>
+    <ul>
+        @foreach ($colunasQueNaoExistemEmTabela1 as $coluna)
+            <li>{{ $coluna }}</li>
+        @endforeach
+    </ul>
+
+    <h2>Colunas que não existem em Tabela 2:</h2>
+    <ul>
+        @foreach ($colunasQueNaoExistemEmTabela2 as $coluna)
+            <li>{{ $coluna }}</li>
+        @endforeach
+    </ul>
 </div>
