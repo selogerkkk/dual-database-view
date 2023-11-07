@@ -9,11 +9,15 @@ class viewtables extends Controller
 {
     public function listarDados()
     {
-        $dadosTabela1 = DB::connection('mysql')->table('tabeladeteste')->get();
-        $dadosTabela2 = DB::connection('mysql_secondary')->table('tabelacliente')->get();
 
-        $colunasTabela1 = DB::connection('mysql')->getSchemaBuilder()->getColumnListing('tabeladeteste');
-        $colunasTabela2 = DB::connection('mysql_secondary')->getSchemaBuilder()->getColumnListing('tabelacliente');
+        $nomeTabela1 = 'bancoprincipal';
+        $nomeTabela2 = 'tabelacliente';
+
+        $dadosTabela1 = DB::connection('mysql')->table($nomeTabela1)->get();
+        $dadosTabela2 = DB::connection('mysql_secondary')->table($nomeTabela2)->get();
+
+        $colunasTabela1 = DB::connection('mysql')->getSchemaBuilder()->getColumnListing($nomeTabela1);
+        $colunasTabela2 = DB::connection('mysql_secondary')->getSchemaBuilder()->getColumnListing($nomeTabela2);
 
         $colunasQueNaoExistemEmTabela1 = array_diff($colunasTabela2, $colunasTabela1);
         $colunasQueNaoExistemEmTabela2 = array_diff($colunasTabela1, $colunasTabela2);
