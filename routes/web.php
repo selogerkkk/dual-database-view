@@ -14,8 +14,9 @@ use App\Http\Controllers\viewtables;
 |
 */
 
+// Route::get('/', [viewtables::class, 'listarDados']);
 Route::get('/', function () {
-    return view('viewtables');
+    return view('welcome');
 });
 
 Route::get('/viewtables', [viewtables::class, 'listarDados']);
